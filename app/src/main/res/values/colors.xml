@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary brand color -->
+    <color name="primary">#233d46</color>
+    <color name="primary_variant">#162a30</color>
+    <color name="primary_light">#49616c</color>
+
+    <!-- Secondary brand color -->
+    <color name="secondary">#195a94</color>
+    <color name="secondary_variant">#1a5b76</color>
+    <color name="secondary_light">#5ba0c0</color>
+
+    <!-- Background colors -->
+    <color name="background">#ffffff</color>
+    <color name="surface">#f5f5f5</color>
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1e1e1e</color>
+
+    <!-- Text colors -->
+    <color name="on_primary">#ffffff</color>
+    <color name="on_secondary">#ffffff</color>
+    <color name="on_background">#202020</color>
+    <color name="on_surface">#202020</color>
+    <color name="on_dark_background">#f5f5f5</color>
+    <color name="on_dark_surface">#f5f5f5</color>
+
+    <!-- Error color -->
+    <color name="error">#b00020</color>
+    <color name="on_error">#ffffff</color>
+
+</resources>
