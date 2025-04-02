@@ -4,10 +4,10 @@
     <style name="TextAppearance.ArticlesJava.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">32sp</item>
-        <item name="android:letterSpacing">0</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:letterSpacing">-0.004</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontWeight">500</item>
+        <item name="android:fontWeight">900</item>
     </style>
 
     <style name="TextAppearance.ArticlesJava.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
@@ -30,9 +30,71 @@
     <style name="TextAppearance.ArticlesJava.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">@font/roboto</item>
         <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontWeight">600</item>
+    </style>
+
+    <style name="RobotoBoldTextStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineHeight">31sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="RobotoMediumTextStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineHeight">26sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="RobotoRegularTextStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineHeight">29sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="RobotoLightTextStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontWeight">300</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:letterSpacing">0.0178571429</item>
-        <item name="android:fontWeight">400</item>
+        <item name="android:lineHeight">25sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="MontserratTextStyleBodyMedium">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineHeight">30sp</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="MontserratSemiBoldTextStyle">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineHeight">30sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="fontWeight">600</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <!-- Shape styles -->

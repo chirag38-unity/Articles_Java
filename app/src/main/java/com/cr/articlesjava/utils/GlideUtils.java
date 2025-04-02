@@ -6,6 +6,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.cr.articlesjava.R;
 
 public class GlideUtils {
 
@@ -16,6 +17,8 @@ public class GlideUtils {
         RequestOptions options = new RequestOptions()
                 .centerCrop()
                 .override(Target.SIZE_ORIGINAL)
+                .placeholder(R.drawable.place_holder)
+                .error(R.drawable.place_holder)
                 .transform(new CenterCrop());
 
         Glide.with(imageView.getContext())

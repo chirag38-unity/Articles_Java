@@ -15,6 +15,7 @@ import com.cr.articlesjava.databinding.ActivityArticleDetailScreenBinding;
 import com.cr.articlesjava.di.ViewModelFactories.ArticleDetailViewModelFactory;
 import com.cr.articlesjava.domain.models.Article;
 import com.cr.articlesjava.utils.DataResultState;
+import com.cr.articlesjava.utils.DateUtils;
 import com.cr.articlesjava.utils.GlideUtils;
 import javax.inject.Inject;
 
@@ -73,8 +74,16 @@ public class ArticleDetailScreen extends AppCompatActivity {
 
                 Article article = ((DataResultState.Success<Article>) state).getData();
                 binding.tvArticleTitle.setText(article.getTitle());
-                binding.tvArticleTime.setText(article.getPublishedAt());
+                binding.tvArticleTime.setText(DateUtils.convertToRelativeTime(article.getPublishedAt()));
                 binding.tvArticleContent.setText(article.getContent());
+
+                binding.btnFavorite.setOnClickListener(v -> viewModel.toggleFavourite());
+
+                if (article.getFavorite()) {
+                    binding.btnFavorite.setImageResource(R.drawable.remove_fav_icon);
+                } else {
+                    binding.btnFavorite.setImageResource(R.drawable.add_fav_icon);
+                }
 
                 GlideUtils.loadArticleImage(binding.ivArticleImage, article.getUrlToImage());
 

@@ -129,7 +129,7 @@ public class ArticlesListScreen extends AppCompatActivity {
     private void showLoading() {
         binding.progressBar.setVisibility(View.VISIBLE);
         binding.recyclerView.setVisibility(View.GONE);
-        binding.tvError.setVisibility(View.GONE);
+        binding.errorLayout.setVisibility(View.GONE);
     }
 
     private void hideLoading() {

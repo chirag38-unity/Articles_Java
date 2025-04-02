@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.cr.articlesjava.R;
 import com.cr.articlesjava.domain.models.Article;
+import com.cr.articlesjava.utils.DateUtils;
 import com.cr.articlesjava.utils.GlideUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +138,7 @@ public class ArticlesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         ImageView ivArticleImage;
         TextView tvArticleTitle;
         TextView tvArticleDate;
-        Button btnReadMore;
+        TextView btnReadMore;
 
         ListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -150,7 +151,7 @@ public class ArticlesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         void bind(Article article) {
 
             tvArticleTitle.setText(article.getTitle());
-            tvArticleDate.setText(article.getPublishedAt());
+            tvArticleDate.setText(DateUtils.convertDateDMY(article.getPublishedAt()));
 
             GlideUtils.loadArticleImage(ivArticleImage, article.getUrlToImage());
 

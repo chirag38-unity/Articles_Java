@@ -17,6 +17,7 @@ public class Article implements Parcelable {
     private String urlToImage;
     private String publishedAt;
     private String content;
+    private Boolean isFavorite = false;
 
     protected Article(Parcel in) {
         author = in.readString();
@@ -26,6 +27,7 @@ public class Article implements Parcelable {
         urlToImage = in.readString();
         publishedAt = in.readString();
         content = in.readString();
+        isFavorite = in.readByte() != 0;
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -58,6 +60,7 @@ public class Article implements Parcelable {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
+        this.isFavorite = false;
     }
 
     @Override
@@ -74,5 +77,14 @@ public class Article implements Parcelable {
         parcel.writeString(urlToImage);
         parcel.writeString(publishedAt);
         parcel.writeString(content);
+        parcel.writeByte(isFavorite ? (byte) 1 : (byte) 0);
+    }
+
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
     }
 }

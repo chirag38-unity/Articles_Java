@@ -32,4 +32,14 @@ public class ArticleDetailViewModel extends ViewModel {
         _uiState.setValue(new DataResultState.Success(article));
     }
 
+    public void toggleFavourite() {
+
+        if (_uiState.getValue() instanceof DataResultState.Success) {
+            Article article = ((DataResultState.Success<Article>) _uiState.getValue()).getData();
+            article.setFavorite(!article.getFavorite());
+            _uiState.setValue(new DataResultState.Success<>(article));
+        }
+
+    }
+
 }
