@@ -49,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:textColor="@color/on_primary"
             style="@style/TextAppearance.ArticlesJava.BodyMedium"
             tools:text="Peace, dignity and equality on a healthy planet. How did China Became The World's Factory?" />

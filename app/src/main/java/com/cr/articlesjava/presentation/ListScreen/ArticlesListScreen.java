@@ -86,10 +86,10 @@ public class ArticlesListScreen extends AppCompatActivity {
             if (isGridMode) {
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                 binding.recyclerView.setLayoutManager(gridLayoutManager);
-                binding.btnToggleView.setImageResource(R.drawable.grid_icon);
+                binding.btnToggleView.setImageResource(R.drawable.lists_icon);
             } else {
                 binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-                binding.btnToggleView.setImageResource(R.drawable.lists_icon);
+                binding.btnToggleView.setImageResource(R.drawable.grid_icon);
             }
         });
 
