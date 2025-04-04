@@ -1,5 +1,7 @@
 package com.cr.articlesjava.utils;
 
+import java.util.function.Consumer;
+
 /**
  * Generic class representing either a success result or an error result
  */
@@ -17,8 +19,15 @@ public abstract class Result<D, E extends DataError> {
             this.data = data;
         }
 
-        public D getData() {
-            return data;
+        @Override
+        public Result<D, E> onSuccess(Consumer<? super D> action) {
+            if (action != null) action.accept(data);
+            return this;
+        }
+
+        @Override
+        public Result<D, E> onError(Consumer<? super E> action) {
+            return this; // No-op: This is a success state, so no error
         }
     }
 
@@ -32,8 +41,22 @@ public abstract class Result<D, E extends DataError> {
             this.error = error;
         }
 
-        public E getError() {
-            return error;
+        @Override
+        public Result<D, E> onSuccess(Consumer<? super D> action) {
+            return this; // No-op: This is an error state, so no success action
+        }
+
+        @Override
+        public Result<D, E> onError(Consumer<? super E> action) {
+            if (action != null) action.accept(error);
+            return this;
         }
     }
+
+    /**
+     * Define abstract methods to be overridden in subclasses
+     */
+    public abstract Result<D, E> onSuccess(Consumer<? super D> action);
+    public abstract Result<D, E> onError(Consumer<? super E> action);
+
 }

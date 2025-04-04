@@ -60,14 +60,15 @@ public class ArticlesListScreenViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         response -> {
+
                             Log.d("NewsListScreenViewModel", "Response: " + response);
-                            if (response instanceof Result.Success) {
-                                NewsResponse data = ((Result.Success<NewsResponse, DataError>) response).getData();
-                                resultState.onNext(new DataResultState.Success<>(data));
-                            } else if (response instanceof Result.Error) {
-                                DataError error = ((Result.Error<NewsResponse, DataError>) response).getError();
-                                resultState.onNext(new DataResultState.Error<>(error));
-                            }
+                            response
+                                    .onSuccess(newsResponse -> {
+                                        resultState.onNext(new DataResultState.Success<>(newsResponse));
+                                    })
+                                    .onError(error -> {
+                                        resultState.onNext(new DataResultState.Error<>(error));
+                                    });
                         },
                         throwable -> {
                             Log.e("NewsListScreenViewModel", "Error loading articles", throwable);

@@ -1,5 +1,8 @@
 package com.cr.articlesjava.data.repository;
 
+import static com.cr.articlesjava.utils.DataError.mapErrorWithStatusCode;
+import static com.cr.articlesjava.utils.DataError.mapExceptionWithThrowable;
+
 import android.util.Log;
 import com.cr.articlesjava.data.remote.NewsApiInterface;
 import com.cr.articlesjava.domain.models.NewsResponse;
@@ -38,13 +41,21 @@ public class ArticlesRepository {
                                 .observeOn(AndroidSchedulers.mainThread()) // Observe results on main thread
                                 .subscribe(
                                         response -> {
-                                            Log.d("NewsRepository", "Fetched data -> " + response.toString());
-                                            emitter.onNext(new Result.Success<>(response.toNewsResponse()) );
+                                            if (response.isSuccessful()) {
+                                                Log.d("NewsRepository", "Fetched data -> " + response.body());
+                                                if (response.body() != null) {
+                                                    emitter.onNext(new Result.Success<>(response.body().toNewsResponse()) );
+                                                } else {
+                                                    emitter.onNext(new Result.Error<>(DataError.NetworkError.UNKNOWN));
+                                                }
+                                            } else {
+                                                emitter.onNext(new Result.Error<>(mapErrorWithStatusCode(response.code())));
+                                            }
                                             emitter.onComplete();
                                         },
                                         throwable -> {
                                             Log.d("NewsRepository", "Error fetching data",throwable);
-                                            emitter.onNext(new Result.Error<>(DataError.NetworkError.UNKNOWN));
+                                            emitter.onNext(new Result.Error<>(mapExceptionWithThrowable(throwable)));
                                             emitter.onComplete();
                                         }
                                 );

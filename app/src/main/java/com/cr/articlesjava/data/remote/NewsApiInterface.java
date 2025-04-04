@@ -2,6 +2,7 @@ package com.cr.articlesjava.data.remote;
 
 import com.cr.articlesjava.data.models.NewsResponseDao;
 import io.reactivex.rxjava3.core.Observable;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
@@ -17,7 +18,7 @@ public interface NewsApiInterface {
      */
 
     @GET("v1/{query}" )
-    Observable<NewsResponseDao> getNews(
+    Observable<Response<NewsResponseDao>> getNews(
             @Path("query") String query
     );
 
